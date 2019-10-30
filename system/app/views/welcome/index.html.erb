@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<p class="navbar-text float-right">
+
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>. <br>
+  <%= link_to 'View Existing Project', new_project_path, :class => 'navbar-link' %> |
+  <%= link_to 'View Existing Team', new_member_path, :class => 'navbar-link' %> |
+  <%= link_to 'Create New Project', projects_path, :class => 'navbar-link' %> |
+  <%= link_to 'Add New Member', members_path, :class => 'navbar-link' %> |
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+
+  <div class="div">
+<button class="accordion">About Gestão</button>
+<div class="panel">
+  <p>Gestão is a portuguese word for Management. With Gestão, you can easily manage your projects and teams and team members.
+  </p>
+</div>
+
+<button class="accordion">Features</button>
+<div class="panel">
+  <p>Gestão provides a user interface where you can :<br>
+  * Sign Up and Log In with your credentials.<br>
+  * You have Forgot Password and Account Deletion option.<br>
+  * You can create new Project and Team here.<br>
+  </p>
+</div>
+
+<button class="accordion">Future Updates</button>
+<div class="panel">
+  <p>Till now, Gestão is only creating projects and teams and there are views for the same. The future updates of Gestão will have admin panel where only admin can create the things and members of the team will have their own profiles for customization.</p>
+</div>
+</div>
+<% end %>
+
+
+<style>
+.right{
+  float : right;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+
+.div {
+  margin-top: 10px;
+  float:left;
+  width: 100%
+}
+}
+</style>
+</head>
+<body> 
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

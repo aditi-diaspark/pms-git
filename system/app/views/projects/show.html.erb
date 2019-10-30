@@ -1,0 +1,32 @@
+<p class="right">Logged in as <strong><%= current_user.email %></strong>.<p> <br><br>
+<p class="navbar-text float-right">
+<p>
+  <strong>User Email:</strong>
+  <%= @project.user_email %>
+</p>
+ 
+<p>
+  <strong>Project Name:</strong>
+  <%= @project.project_name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @project.end_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<style>
+.right{
+  float : right;
+}
+</style>

@@ -1,0 +1,43 @@
+<p class="navbar-text float-right">
+
+<p class="right">Logged in as <strong><%= current_user.email %></strong>.</p> <br>
+
+<%= form_with scope: :member, url: members_path, local: true do |form| %>
+  
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, :required => 'required' %>
+    </p>
+   
+    <p>
+      <%= form.label :email %><br>
+      <%= form.text_field :email, :required => 'required' %>
+    </p>
+    
+  
+    <p>
+      <%= form.label :team_name %><br>
+      <%= form.text_field :team_name, :required => 'required' %>
+    </p>
+  
+    <p>
+      <%= form.label :project_name %><br>
+      <%= form.text_field :project_name, :required => 'required' %>
+    </p>
+
+    <p>
+      <%= form.label :position %><br>
+      <%= form.text_area :position, :required => 'required' %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+<style>
+.right{
+  float : right;
+}
+</style>
+  

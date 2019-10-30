@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<p class="navbar-text float-right">
+
+<p class="right">Logged in as <strong><%= current_user.email %></strong>.</p> <br>
+
+<%= form_with scope: :project, url: projects_path, local: true do |form| %>
+  
+    <p>
+      <%= form.label :user_email %><br>
+      <%= form.text_field :user_email, :value => current_user.email, readonly: true %>
+    </p>
+   
+    <p>
+      <%= form.label :project_name %><br>
+      <%= form.text_field :project_name, :required => 'required' %>
+    </p>
+    
+  
+    <p>
+      <%= form.label :start_date %><br>
+      <%= form.text_field :start_date, placeholder: 'DD-MM-YYYY', :required => 'required', class: 'flatpikr' %>
+    </p>
+  
+    <p>
+      <%= form.label :end_date %><br>
+      <%= form.text_field :end_date, placeholder: 'DD-MM-YYYY', :required => 'required', class: 'flatpikr' %>
+    </p>
+
+    <p>
+      <%= form.label :description %><br>
+      <%= form.text_area :description, :required => 'required' %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+<style>
+.right{
+  float : right;
+}
+</style>
+
+<script>
+flatpickr('.flatpikr', {
+});
+</script>
+
